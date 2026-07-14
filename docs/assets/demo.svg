@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="750" viewBox="0 0 900 750" font-family="Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" xml:space="preserve">
+  <!-- Terminal transcript of a real run of
+       `grantsmith scan examples/transcripts --top 8` against the bundled
+       sample sessions, followed by `grantsmith explain "Bash(git:*)"`.
+       Every output line is copied verbatim from an actual execution;
+       regenerate by rerunning those commands after any output change. -->
+  <rect width="900" height="750" rx="10" fill="#0d1117"/>
+  <rect width="900" height="34" rx="10" fill="#161b22"/>
+  <rect y="20" width="900" height="14" fill="#161b22"/>
+  <circle cx="22" cy="17" r="6" fill="#ff5f57"/>
+  <circle cx="42" cy="17" r="6" fill="#febc2e"/>
+  <circle cx="62" cy="17" r="6" fill="#28c840"/>
+  <text x="450" y="22" fill="#8b949e" text-anchor="middle" font-size="12">grantsmith — allowlists forged from evidence</text>
+  <g fill="#c9d1d9">
+    <text x="24" y="62"><tspan fill="#7ee787">$</tspan> grantsmith scan examples/transcripts --top 8</text>
+    <text x="24" y="82"><tspan font-weight="bold">grantsmith</tspan> — mined 229 tool calls from 3 transcripts (3 sessions, 2026-06-30 → 2026-07-11)</text>
+    <text x="24" y="114">  tool calls seen            229</text>
+    <text x="24" y="134">  bash segments              158</text>
+    <text x="24" y="154">  already allowed              0</text>
+    <text x="24" y="174">  candidate rules             19</text>
+    <text x="24" y="206"><tspan fill="#8b949e">   #  RULE                RISK      CALLS  SESSIONS  NOTE</tspan></text>
+    <text x="24" y="226">   1  <tspan fill="#f0f6fc" font-weight="bold">Bash(git status)</tspan>    <tspan fill="#7ee787">safe</tspan>         36         3</text>
+    <text x="24" y="246">   2  <tspan fill="#f0f6fc" font-weight="bold">Read(src/**)</tspan>        <tspan fill="#7ee787">safe</tspan>         23         3  covers 7 files</text>
+    <text x="24" y="266">   3  <tspan fill="#f0f6fc" font-weight="bold">Bash(npm test)</tspan>      <tspan fill="#79c0ff">low</tspan>          23         3</text>
+    <text x="24" y="286">   4  <tspan fill="#f0f6fc" font-weight="bold">Bash(npm run:*)</tspan>     <tspan fill="#79c0ff">low</tspan>          21         3  covers 4 variants</text>
+    <text x="24" y="306">   5  <tspan fill="#f0f6fc" font-weight="bold">Bash(git diff)</tspan>      <tspan fill="#7ee787">safe</tspan>         18         3</text>
+    <text x="24" y="326">   6  <tspan fill="#f0f6fc" font-weight="bold">Bash(pytest:*)</tspan>      <tspan fill="#79c0ff">low</tspan>          15         3  covers 4 variants</text>
+    <text x="24" y="346">   7  <tspan fill="#f0f6fc" font-weight="bold">Bash(git commit:*)</tspan>  <tspan fill="#d29922">medium</tspan>       14         3  covers 14 variants</text>
+    <text x="24" y="366">   8  <tspan fill="#f0f6fc" font-weight="bold">Edit(src/**)</tspan>        <tspan fill="#d29922">medium</tspan>       14         3  covers 6 files</text>
+    <text x="24" y="386"><tspan fill="#8b949e">      … 8 more within --max-risk medium (raise --top to see them)</tspan></text>
+    <text x="24" y="418"><tspan fill="#f85149">held back above --max-risk medium (3 rules, 13 calls):</tspan></text>
+    <text x="24" y="438"><tspan fill="#8b949e">      RULE                                          RISK      CALLS  SESSIONS  NOTE</tspan></text>
+    <text x="24" y="458">      <tspan fill="#f0f6fc" font-weight="bold">Bash(git push)</tspan>                                <tspan fill="#f85149">high</tspan>          6         3</text>
+    <text x="24" y="478">      <tspan fill="#f0f6fc" font-weight="bold">Bash(curl -s https://api.example.test/healt…</tspan>  <tspan fill="#f85149">high</tspan>          4         3</text>
+    <text x="24" y="498">      <tspan fill="#f0f6fc" font-weight="bold">Bash(rm -rf node_modules)</tspan>                     <tspan fill="#f85149">critical</tspan>      3         2</text>
+    <text x="24" y="518"><tspan fill="#8b949e">        Bash(git push) — git push: publishes commits to a remote</tspan></text>
+    <text x="24" y="538"><tspan fill="#8b949e">        Bash(curl -s https://api.example.test/healt… — curl: network access: can download or exfiltrate</tspan></text>
+    <text x="24" y="558"><tspan fill="#8b949e">        Bash(rm -rf node_modules) — rm: deletes files; recursive force delete (`rm -rf`)</tspan></text>
+    <text x="24" y="590">Next: `grantsmith emit …` prints these 16 rules as a settings snippet.</text>
+    <text x="24" y="622"><tspan fill="#7ee787">$</tspan> grantsmith explain "Bash(git:*)"</text>
+    <text x="24" y="642">rule: Bash(git:*)</text>
+    <text x="24" y="662">risk: <tspan fill="#f85149" font-weight="bold">high</tspan></text>
+    <text x="24" y="682">  - git: subcommands range from queries to remote pushes</text>
+    <text x="24" y="702">  - prefix also reaches `git push` (high)</text>
+    <text x="24" y="722">  - prefix rule: any arguments after `git` are allowed</text>
+  </g>
+</svg>

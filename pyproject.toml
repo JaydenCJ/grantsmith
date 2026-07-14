@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "grantsmith"
+version = "0.1.0"
+description = "Mine agent session transcripts to propose ranked permission allowlist rules with risk annotations."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "JaydenCJ" }]
+keywords = ["agent", "permissions", "allowlist", "claude-code", "transcripts", "security", "cli"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: Software Development :: Quality Assurance",
+    "Environment :: Console",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+grantsmith = "grantsmith.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/JaydenCJ/grantsmith"
+Repository = "https://github.com/JaydenCJ/grantsmith"
+Issues = "https://github.com/JaydenCJ/grantsmith/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
