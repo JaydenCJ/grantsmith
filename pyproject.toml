@@ -9,7 +9,7 @@ description = "Mine agent session transcripts to propose ranked permission allow
 readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "MIT" }
-authors = [{ name = "JaydenCJ" }]
+authors = [{ name = "JaydenCJ", email = "aisingioro.kiyon@gmail.com" }]
 keywords = ["agent", "permissions", "allowlist", "claude-code", "transcripts", "security", "cli"]
 classifiers = [
     "Development Status :: 3 - Alpha",
